@@ -256,6 +256,8 @@ async function verifyUserToken(token: string): Promise<{ success: boolean; user?
 }
 
 export default {
+    // The name of the route/function (AUTO-GENERATED: do not change manually)
+    name: 'auth-service',
     function: async (request: FastifyRequest<{ Querystring: QueryParams }>, reply: FastifyReply): Promise<any> => {
         // Enable CORS
         reply.header('Access-Control-Allow-Origin', '*');
@@ -386,5 +388,4 @@ export default {
             };
         }
     },
-    name: 'auth-service',
 };

@@ -369,6 +369,8 @@ async function deleteTransaction(userId: string, transactionId: string): Promise
 }
 
 export default {
+    // The name of the route/function (AUTO-GENERATED: do not change manually)
+    name: 'transaction-api',
     function: async (request: FastifyRequest<{ Querystring: QueryParams }>, reply: FastifyReply): Promise<any> => {
         // Enable CORS
         reply.header('Access-Control-Allow-Origin', '*');
@@ -512,5 +514,4 @@ export default {
             };
         }
     },
-    name: 'transaction-api',
 };

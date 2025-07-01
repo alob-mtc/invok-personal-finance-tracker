@@ -5,6 +5,8 @@ interface QueryParams {
 }
 
 export default {
+    // The name of the route/function (AUTO-GENERATED: do not change manually)
+    name: 'finance-app',
     function: async (_request: FastifyRequest<{ Querystring: QueryParams }>, reply: FastifyReply): Promise<any> => {
         reply.type('text/html');
 
@@ -2402,5 +2404,4 @@ export default {
 
         return html;
     },
-    name: 'finance-app',
 };
