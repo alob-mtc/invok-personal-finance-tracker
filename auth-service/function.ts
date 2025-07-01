@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import Joi from "joi";
 
-// MongoDB connection invok-fp,5ANJbIa7jZhsNq0U
+// MongoDB connection
 const MONGODB_URI = process.env['MONGODB_URI'] || "mongodb_xxxx";
 const JWT_SECRET = process.env['JWT_SECRET'] || "jwt_xxxx";
 
