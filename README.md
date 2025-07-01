@@ -46,10 +46,6 @@ graph TD
     WebApp --> BudgetView[📈 Budget Analysis<br/>• Spending Breakdown<br/>• AI Insights<br/>• Alerts & Warnings]
     WebApp --> InsightsView[🔍 Financial Insights<br/>• Health Analysis<br/>• Trend Tracking<br/>• Recommendations]
     
-    %% Performance Indicators
-    Insights -.->|⚡ ~2ms| PerfGo1[High Performance<br/>Go Runtime]
-    Budget -.->|⚡ ~1ms| PerfGo2[Ultra Fast<br/>Go Runtime]
-    
     %% Runtime Classification
     classDef goFunction fill:#00ADD8,stroke:#007d9c,stroke-width:2px,color:#fff
     classDef tsFunction fill:#3178C6,stroke:#2c5aa0,stroke-width:2px,color:#fff
