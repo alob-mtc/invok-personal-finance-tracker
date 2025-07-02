@@ -68,7 +68,7 @@ graph LR
     Browser[🌐 Web Browser] --> LB[⚡ Invok Serverless<br/>Load Balancer]
     
     %% Serverless Functions
-    LB --> Frontend[📱 finance-app<br/>TypeScript<br/>React SPA Server]
+    LB --> Frontend[📱 finance-app<br/>TypeScript<br/>SPA Server]
     LB --> Auth[🔐 auth-service<br/>TypeScript<br/>Authentication API]
     LB --> TransAPI[💳 transaction-api<br/>TypeScript<br/>CRUD Operations]
     LB --> Insights[🧠 calculate-insights<br/>Go<br/>Financial Analysis]
@@ -79,10 +79,6 @@ graph LR
     Frontend -.->|API Calls| TransAPI
     TransAPI -.->|Process Data| Insights
     TransAPI -.->|Process Data| Budget
-    
-    %% Performance Metrics
-    Insights --> Perf1[⚡ ~2ms Response<br/>100/100 Health Score<br/>93.2% Savings Rate]
-    Budget --> Perf2[⚡ ~1ms Response<br/>97.5/100 Budget Health<br/>Real-time Analysis]
     
     %% Auto Scaling
     LB -.->|Auto Scale| Scale[📈 Independent Scaling<br/>• Pay per execution<br/>• Zero server management<br/>• High availability]
@@ -115,13 +111,13 @@ graph LR
 
 ### Function Overview
 
-| Function | Runtime | Purpose | Performance |
-|----------|---------|---------|-------------|
-| `finance-app` | TypeScript | React SPA frontend server | UI/UX |
-| `auth-service` | TypeScript | User authentication & registration | Business Logic |
-| `transaction-api` | TypeScript | Transaction CRUD operations | API Management |
-| `calculate-insights` | Go | Financial health scoring & analysis | ~2ms response |
-| `budget-analyzer` | Go | Real-time budget analysis & alerts | ~1ms response |
+| Function | Runtime | Purpose |
+|----------|---------|---------|
+| `finance-app` | TypeScript | React SPA frontend server |
+| `auth-service` | TypeScript | User authentication & registration |
+| `transaction-api` | TypeScript | Transaction CRUD operations |
+| `calculate-insights` | Go | Financial health scoring & analysis |
+| `budget-analyzer` | Go | Real-time budget analysis & alerts |
 
 ## 🚀 Live Demo
 
