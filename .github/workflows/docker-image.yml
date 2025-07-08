@@ -49,6 +49,7 @@ jobs:
 
       - name: Invok CLI Deploy All Functions
         run: |
+          ls
           # for each folder in the repo root
           for dir in */ ; do
             fn="${dir%/}"               # strip trailing slash
