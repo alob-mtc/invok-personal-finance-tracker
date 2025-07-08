@@ -49,7 +49,6 @@ jobs:
 
       - name: Invok CLI Deploy All Functions
         run: |
-          ls
           # for each folder in the repo root
           for dir in */ ; do
             fn="${dir%/}"               # strip trailing slash
@@ -58,7 +57,7 @@ jobs:
             docker run --rm \
               --user root \
               -v "${{ github.workspace }}":/app \
-              -w "/app/$fn" \
+              -w "/app" \
               bolamigbe/invok:latest \
               deploy \
               -n "$fn"
