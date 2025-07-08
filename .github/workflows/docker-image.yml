@@ -23,7 +23,8 @@ jobs:
         run: |
           jq \
             --arg mongodb "${{ secrets.MONGODB_URI }}" \
-            '.env.MONGODB_URI = $mongodb' \
+            --arg jwt "${{ secrets.JWT_SECRET }}" \
+            '.env.MONGODB_URI = $mongodb | .env.JWT_SECRET = $jwt' \
             auth-service/config.json \
             > auth-service/config.json.tmp
           mv auth-service/config.json.tmp auth-service/config.json
