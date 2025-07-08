@@ -2,8 +2,8 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { MongoClient, Db, Collection, ObjectId } from "mongodb";
 
 // MongoDB connection
-const MONGODB_URI = process.env['MONGODB_URI'] || "mongodb_xxxx";
-const AUTH_SERVICE_URL = process.env['AUTH_SERVICE_URL'] || "https://freeserverless.com/invok/cf749b32-a29a-4080-bbd0-87a66a9d1b00/auth-service";
+const MONGODB_URI = process.env['MONGODB_URI'];
+const AUTH_SERVICE_URL = process.env['AUTH_SERVICE_URL'];
 
 interface Transaction {
     _id?: ObjectId;

@@ -1,1 +1,8 @@
-{"function_name":"calculate-insights","runtime":"go","env":{}}
+{
+    "function_name": "calculate-insights",
+    "runtime": "go",
+    "env": {
+        "AUTH_SERVICE_URL": "https://freeserverless.com/invok/cf749b32-a29a-4080-bbd0-87a66a9d1b00/auth-service",
+        "TRANSACTION_API_URL": "https://freeserverless.com/invok/cf749b32-a29a-4080-bbd0-87a66a9d1b00/transaction-api"
+    }
+}

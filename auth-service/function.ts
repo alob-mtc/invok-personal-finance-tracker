@@ -5,8 +5,8 @@ import bcrypt from "bcryptjs";
 import Joi from "joi";
 
 // MongoDB connection
-const MONGODB_URI = process.env['MONGODB_URI'] || "mongodb_xxxx";
-const JWT_SECRET = process.env['JWT_SECRET'] || "jwt_xxxx";
+const MONGODB_URI = process.env['MONGODB_URI'];
+const JWT_SECRET = process.env['JWT_SECRET'];
 
 interface User {
     _id?: ObjectId;

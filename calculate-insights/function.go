@@ -61,17 +61,11 @@ type TrendData struct {
 
 // Service URLs
 func getAuthServiceURL() string {
-	if url := os.Getenv("AUTH_SERVICE_URL"); url != "" {
-		return url
-	}
-	return "https://freeserverless.com/invok/cf749b32-a29a-4080-bbd0-87a66a9d1b00/auth-service"
+	return os.Getenv("AUTH_SERVICE_URL")
 }
 
 func getTransactionAPIURL() string {
-	if url := os.Getenv("TRANSACTION_API_URL"); url != "" {
-		return url
-	}
-	return "https://freeserverless.com/invok/cf749b32-a29a-4080-bbd0-87a66a9d1b00/transaction-api"
+	return os.Getenv("TRANSACTION_API_URL")
 }
 
 // Verify user authentication through auth-service
