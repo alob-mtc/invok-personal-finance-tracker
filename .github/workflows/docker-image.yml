@@ -1,0 +1,66 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Populate config.json with secrets
+        run: |
+          jq \
+            --arg mongodb "${{ secrets.MONGODB_URI }}" \
+            '.env.MONGODB_URI = $mongodb' \
+            auth-service/config.json \
+            > auth-service/config.json.tmp
+          mv auth-service/config.json.tmp auth-service/config.json
+
+          jq \
+            --arg mongodb "${{ secrets.MONGODB_URI }}" \
+            '.env.MONGODB_URI = $mongodb' \
+            transaction-api/config.json \
+            > transaction-api/config.json.tmp
+          mv transaction-api/config.json.tmp transaction-api/config.json
+          
+
+      - name: Invok CLI Login
+        run: |
+          docker run --rm \
+            --user root \
+            -v "${{ github.workspace }}":/app \
+            -w /app \
+            bolamigbe/invok:latest \
+            login \
+            -e "${{ secrets.NAME_SPACE }}" \
+            -p "${{ secrets.PASS }}"
+
+      - name: Invok CLI Deploy All Functions
+        run: |
+          # for each folder in the repo root
+          for dir in */ ; do
+            fn="${dir%/}"               # strip trailing slash
+            echo "⏳ Deploying function: $fn"
+
+            docker run --rm \
+              --user root \
+              -v "${{ github.workspace }}":/app \
+              -w "/app/$fn" \
+              bolamigbe/invok:latest \
+              deploy \
+              -n "$fn"
+
+            echo "✅ Deployed $fn"
+          done
